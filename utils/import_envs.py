@@ -32,3 +32,8 @@ try:
     import panda_gym  # pytype: disable=import-error
 except ImportError:
     panda_gym = None
+
+try:
+    import assembly_learning # custom assembly learning env currently only using pointclouds
+except ImportError:
+    assembly_learning = None

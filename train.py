@@ -114,6 +114,12 @@ if __name__ == "__main__":  # noqa: C901
         help="Overwrite hyperparameter (e.g. learning_rate:0.01 train_freq:10)",
     )
     parser.add_argument("-uuid", "--uuid", action="store_true", default=False, help="Ensure that the run has a unique ID")
+
+    parser.add_argument("--w-project", help="wandb project name", default="assembly-learning", type=str)
+    parser.add_argument("--w-entity", help="wandb entity name", default="metu-kalfa", type=str)
+    parser.add_argument("--w-group", help="wandb group name", default="group-name", type=str)
+    parser.add_argument("--w-run", help="wandb run name", default="run-name", type=str)
+
     args = parser.parse_args()
 
     # Going through custom gym packages to let them register in the global registory

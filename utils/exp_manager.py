@@ -45,6 +45,9 @@ from utils.callbacks import SaveVecNormalizeCallback, TrialEvalCallback
 from utils.hyperparams_opt import HYPERPARAMS_SAMPLER
 from utils.utils import ALGOS, get_callback_list, get_latest_run_id, get_wrapper_class, linear_schedule
 
+from assembly_learning.utils import GraphFeatureExtractor, GraphFeatureExtractorGoal
+import wandb
+from wandb.integration.sb3 import WandbCallback
 
 class ExperimentManager(object):
     """
@@ -160,6 +163,17 @@ class ExperimentManager(object):
 
         :return: the initialized RL model
         """
+        args_ = vars(self.args)
+        self.run = wandb.init(
+            project=args_["w_project"],
+            entity=args_["w_entity"],
+            group=args_["w_group"],
+            sync_tensorboard=True,  # auto-upload sb3's tensorboard metrics
+            monitor_gym=False,  # auto-upload the videos of agents playing the game
+            save_code=False,  # optional
+        )
+        if args_["w_run"] != "run-name":
+            self.run.name = args_["w_run"]
         hyperparams, saved_hyperparams = self.read_hyperparameters()
         hyperparams, self.env_wrapper, self.callbacks = self._preprocess_hyperparams(hyperparams)
 
@@ -187,6 +201,7 @@ class ExperimentManager(object):
             )
 
         self._save_config(saved_hyperparams)
+        # self.run.watch(model.policy, log="all", log_freq=1)
         return model
 
     def learn(self, model: BaseAlgorithm) -> None:
@@ -215,6 +230,7 @@ class ExperimentManager(object):
             # Release resources
             try:
                 model.env.close()
+                self.run.finish()
             except EOFError:
                 pass
 
