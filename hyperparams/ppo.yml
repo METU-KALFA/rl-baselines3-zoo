@@ -62,7 +62,7 @@ assembly-cloud-v25:
   callback: wandb.integration.sb3.WandbCallback
   policy: 'MultiInputPolicy'
 
-assembly-cloud-partial-v1:
+assembly-cloud-partial-threshold-lack-v0:
   n_timesteps: !!float 2e5
   policy_kwargs: 'dict(
                       activation_fn=nn.ReLU,
@@ -81,6 +81,7 @@ assembly-cloud-partial-chamfer-v0:
                       features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
   callback: wandb.integration.sb3.WandbCallback
   policy: 'MultiInputPolicy'
+  ent_coef: 0.01
 
 assembly-cloud-end-chamfer-v0:
   n_timesteps: !!float 1e6
@@ -92,7 +93,138 @@ assembly-cloud-end-chamfer-v0:
   callback: wandb.integration.sb3.WandbCallback
   policy: 'MultiInputPolicy'
   ent_coef: 0.01
-  
+
+assembly-cloud-partial-end-chamfer-v0:
+  n_timesteps: !!float 1e6
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+  ent_coef: 0.01
+
+assembly-cloud-partial-chamfer-change-v0:
+  n_timesteps: !!float 1e6
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-ivar-v0:
+  n_timesteps: !!float 1e6
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-agne-v0: # work in progress
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=21*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-bernhard-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=21*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-bertil-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-mikael-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=28*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-sivar-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=42*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-sliden-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=77*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-swivel-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=21*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-klubbo-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-partial-threshold-tvunit-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-furniture-ivar-v0:
+  n_timesteps: !!float 2e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
 atari:
   env_wrapper:
     - stable_baselines3.common.atari_wrappers.AtariWrapper
