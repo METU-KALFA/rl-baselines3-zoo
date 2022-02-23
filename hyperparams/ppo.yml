@@ -215,8 +215,18 @@
 #   callback: wandb.integration.sb3.WandbCallback
 #   policy: 'MultiInputPolicy'
 
+assembly-cloud-furniture-bernhard-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=21*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
 assembly-cloud-furniture-ivar-v0:
-  n_timesteps: !!float 2e5
+  n_timesteps: !!float 1e5
   policy_kwargs: 'dict(
                       activation_fn=nn.ReLU,
                       net_arch=[dict(pi=[256, 256], vf=[256, 256])],
@@ -226,7 +236,117 @@ assembly-cloud-furniture-ivar-v0:
   policy: 'MultiInputPolicy'
 
 assembly-cloud-furniture-lack-v0:
-  n_timesteps: !!float 2e5
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-ivar-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-agne-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=21*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-bernhard-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=21*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-bertil-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-mikael-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=28*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-sivar-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=42*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-sliden-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=77*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-swivel-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=21*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-klubbo-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-lack-v0:
+  n_timesteps: !!float 1e5
+  policy_kwargs: 'dict(
+                      activation_fn=nn.ReLU,
+                      net_arch=[dict(pi=[256, 256], vf=[256, 256])],
+                      features_extractor_class=GraphFeatureExtractor,
+                      features_extractor_kwargs=dict(features_dim=35*256, pooling=False),)'
+  callback: wandb.integration.sb3.WandbCallback
+  policy: 'MultiInputPolicy'
+
+assembly-cloud-supervised-tvunit-v0:
+  n_timesteps: !!float 1e5
   policy_kwargs: 'dict(
                       activation_fn=nn.ReLU,
                       net_arch=[dict(pi=[256, 256], vf=[256, 256])],
