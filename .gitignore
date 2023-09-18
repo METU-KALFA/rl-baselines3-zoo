@@ -31,3 +31,7 @@ keys/
 .cache
 *.lprof
 *.prof
+
+
+wandb
+assembly_cloud*
