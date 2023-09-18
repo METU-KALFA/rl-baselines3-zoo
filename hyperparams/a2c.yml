@@ -1,6 +1,10 @@
 atari:
   env_wrapper:
     - stable_baselines3.common.atari_wrappers.AtariWrapper
+  # Equivalent to
+  # vec_env_wrapper:
+  #   - stable_baselines3.common.vec_env.VecFrameStack:
+  #         n_stack: 4
   frame_stack: 4
   policy: 'CnnPolicy'
   n_envs: 16
@@ -39,7 +43,7 @@ Acrobot-v1:
   ent_coef: .0
 
 # Tuned
-Pendulum-v0:
+Pendulum-v1:
   normalize: True
   n_envs: 8
   n_timesteps: !!float 1e6

@@ -12,7 +12,7 @@ EVAL_FREQ = 25000
 N_EVAL_EPISODES = 20
 N_EVAL_ENVS = 5
 np.random.seed(8)
-SEEDS = np.random.randint(2 ** 20, size=(N_SEEDS,))
+SEEDS = np.random.randint(2**20, size=(N_SEEDS,))
 # N_TIMESTEPS = int(1e6)
 
 os.makedirs(os.path.join("logs", "slurm"), exist_ok=True)
@@ -49,7 +49,7 @@ for algo in ALGOS:
             ]
             args = list(map(str, args))
 
-            command = " ".join(["python", "-u", "train.py"] + args)
+            command = " ".join(["python", "-u", "train.py", *args])
 
             ok = subprocess.call(["sbatch", "cluster_torchy.sh", algo, env_id, "ablation", command])
             time.sleep(0.05)

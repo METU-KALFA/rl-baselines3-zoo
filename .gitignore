@@ -13,6 +13,21 @@ rl-trained_agents/
 htmlcov/
 git_rewrite_commit_history.sh
 .vscode/
+wandb
+runs
+hub
+*.mp4
+*.json
+_build/
 
-wandb/
-assembly_cloud/
+tests/dummy_env/build/
+
+
+# Setuptools distribution and build folders.
+/dist/
+/build
+keys/
+*.egg-info
+.cache
+*.lprof
+*.prof
