@@ -7,6 +7,7 @@ from torch import nn as nn
 
 from rl_zoo3 import linear_schedule
 
+from assembly_learning.utils import GraphFeatureExtractor3
 
 def sample_ppo_params(trial: optuna.Trial) -> Dict[str, Any]:
     """
@@ -19,9 +20,9 @@ def sample_ppo_params(trial: optuna.Trial) -> Dict[str, Any]:
     n_steps = trial.suggest_categorical("n_steps", [8, 16, 32, 64, 128, 256, 512, 1024, 2048])
     gamma = trial.suggest_categorical("gamma", [0.9, 0.95, 0.98, 0.99, 0.995, 0.999, 0.9999])
     learning_rate = trial.suggest_float("learning_rate", 1e-5, 1, log=True)
-    lr_schedule = "constant"
+    # lr_schedule = "constant"
     # Uncomment to enable learning rate schedule
-    # lr_schedule = trial.suggest_categorical('lr_schedule', ['linear', 'constant'])
+    lr_schedule = trial.suggest_categorical('lr_schedule', ['linear', 'constant'])
     ent_coef = trial.suggest_float("ent_coef", 0.00000001, 0.1, log=True)
     clip_range = trial.suggest_categorical("clip_range", [0.1, 0.2, 0.3, 0.4])
     n_epochs = trial.suggest_categorical("n_epochs", [1, 5, 10, 20])
@@ -72,6 +73,8 @@ def sample_ppo_params(trial: optuna.Trial) -> Dict[str, Any]:
             net_arch=net_arch,
             activation_fn=activation_fn,
             ortho_init=ortho_init,
+            features_extractor_class=GraphFeatureExtractor3,
+            features_extractor_kwargs=dict(features_dim=17*256, hidden_dim=256)
         ),
     }
 
